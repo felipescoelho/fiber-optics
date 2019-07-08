@@ -34,8 +34,14 @@ def lim_crom(delta_disp, wavelen):
 #                                  SDH L-4.1
 # ----------------------------------------------------------------------------
 lim1_a = lim_aten(-28, -3, 1310, 1)
-lim2_a_MLM = lim_crom(92, 1310)
+lim2_a_MLM1 = lim_crom(92, 1310)
+lim2_a_MLM2 = lim_crom(109, 1310)
 lim2_a_SLM = lim_crom('NA', 1310)
+
+if lim2_a_MLM1 < lim2_a_MLM2:
+    lim2_a_MLM = lim2_a_MLM1
+else:
+    lim2_a_MLM = lim2_a_MLM2
 
 if lim1_a < lim2_a_MLM:
     lim_a_MLM = lim1_a
